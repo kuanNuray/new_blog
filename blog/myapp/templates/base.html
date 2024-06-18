@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <!--custom css link-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.xss">
+    <!--google fonts links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans :wght@300;400; 500; 600; 700; 800&display=swap">
+    {% block extracss %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <a href="{% url 'home' %}" class="logo">Goss<span>Ips</span></a>
+            <ul class="navbar">
+                <li><a href="{% url 'home' %}">Домой</a></li>
+                <li> <a href="{% url 'posts' %}">Посты</a></li>
+                <div class="dropdown">
+                    <a href="#" class="categories-dropdown">Категории</a>
+                    <div class="dropdown-content">
+                        {% for category in categories %}
+                        <a href="{% url 'posts_by_category' category.id %}">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <li> <a href="{% url 'about' %}">О нас</a></li>
+            </ul>
+        </div>
+
+        <div class="btns">
+            <a href="#" class="chiken">Регистрация</a>
+            <a href="#" class="btnsbtns">Вход</a>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <!-- <footer>
+        <div id="footer">
+            <div class="fotw">
+                <a href="#">Выход</a>
+            </div>
+            <div class="icons">
+                <img src="{% static 'img/inst.png' %}" alt="Instagram">
+                <img src="{% static 'img/face.png' %}" alt="Facebook">
+            </div>
+        </div>
+    </footer> -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

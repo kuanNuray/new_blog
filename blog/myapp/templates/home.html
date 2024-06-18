@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<section class="home">
+    <div class="nac">
+        <div class="home_text">
+            <h5>Let's</h5>
+            <h1>Planning your <br>own travel</br></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt delectus reprehenderit expedita minima eius provident nulla modi corporis dolore, </p>
+        </div>
+    </div>
+
+    <section class="feature">
+        <div class="feature-content">
+            <div class="row">
+                <div class="row-img">
+                    <img src="https://static.hdrezka.ac/i/2022/2/18/ib313d3d4801bhf64v47e.jpg" alt="">
+                </div>
+                <h4>четотам</h4>
+            </div>
+            <div class="row">
+                <div class="row-img">
+                    <img src="https://static.hdrezka.ac/i/2022/2/18/ib313d3d4801bhf64v47e.jpg" alt="">
+                </div>
+                <h4>четотам</h4>
+            </div>
+            <div class="row">
+                <div class="row-img">
+                    <img src="https://static.hdrezka.ac/i/2022/2/18/ib313d3d4801bhf64v47e.jpg" alt="">
+                </div>
+                <h4>четотам</h4>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="main_box">
+        {% for post in posts %}
+        <div class="card_one">
+            <h2>{{ post.title }}</h2>
+            <img src="https://static.hdrezka.ac/i/2022/2/18/ib313d3d4801bhf64v47e.jpg" alt="">
+            <p>{{ post.content | truncatewords:15 | linebreaks }}</p>
+            <div class="btn-read">
+                <a href="{% url 'posts' %}">Читать больше</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="line"></div>
+</section>
+{% endblock %}

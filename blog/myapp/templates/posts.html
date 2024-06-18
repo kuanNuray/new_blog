@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="linepad"></div>
+
+<div class="main_box">
+    {% for post in posts %}
+    <div class="card_one">
+        <h2>{{ post.title }}</h2>
+        <img src="https://static.hdrezka.ac/i/2022/2/18/ib313d3d4801bhf64v47e.jpg" alt="">
+        <p> {{post.content}}</p>
+        <div class="btn-read">
+            <a href="{{post.get_absolute_url}}">Читать больше</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="line"></div>
+
+{% endblock content %}
