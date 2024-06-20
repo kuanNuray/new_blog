@@ -13,7 +13,7 @@
     <!--google fonts links-->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans :wght@300;400; 500; 600; 700; 800&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap">
     {% block extracss %}{% endblock %}
 </head>
 
@@ -23,7 +23,7 @@
             <a href="{% url 'home' %}" class="logo">Goss<span>Ips</span></a>
             <ul class="navbar">
                 <li><a href="{% url 'home' %}">Домой</a></li>
-                <li> <a href="{% url 'posts' %}">Посты</a></li>
+                <li><a href="{% url 'posts' %}">Посты</a></li>
                 <div class="dropdown">
                     <a href="#" class="categories-dropdown">Категории</a>
                     <div class="dropdown-content">
@@ -32,29 +32,47 @@
                         {% endfor %}
                     </div>
                 </div>
-                <li> <a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
             </ul>
         </div>
 
         <div class="btns">
-            <a href="#" class="chiken">Регистрация</a>
-            <a href="#" class="btnsbtns">Вход</a>
+            <a href="{% url 'signup' %}" class="chiken">Регистрация</a>
+            <a href="{% url 'login' %}" class="btnsbtns">Вход</a>
         </div>
     </header>
     <main>
         {% block content %}{% endblock %}
     </main>
-    <!-- <footer>
-        <div id="footer">
-            <div class="fotw">
-                <a href="#">Выход</a>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <ul>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <li><a href="tel:+123456789">+123456789</a></li>
+                </ul>
             </div>
-            <div class="icons">
-                <img src="{% static 'img/inst.png' %}" alt="Instagram">
-                <img src="{% static 'img/face.png' %}" alt="Facebook">
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-icons">
+                    <img src="{% static 'img/inst.png' %}" alt="Instagram">
+                    <img src="{% static 'img/face.png' %}" alt="Facebook">
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li><a href="{% url 'home' %}">Домой</a></li>
+                    <li><a href="{% url 'posts' %}">Посты</a></li>
+                    <li><a href="{% url 'about' %}">О нас</a></li>
+                </ul>
             </div>
         </div>
-    </footer> -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 My Site. Все права защищены.</p>
+        </div>
+    </footer>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 

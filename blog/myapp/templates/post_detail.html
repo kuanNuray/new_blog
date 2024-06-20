@@ -5,12 +5,17 @@
 {% block content %}
 
 <div class="post_detail">
-    <h1>{{ post.title }}</h1>
-    {% if post.photo %}
-    <img src="{{ post.photo.url }}" alt="" style="width: 100%; height: 200px;">
-    {% endif %}
-    <p>{{ post.content }}</p>
-    <a href="{% url 'home' %}">Назад</a>
+    <div class="post_detail_content">
+        <h1>{{ post.title }}</h1>
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="">
+        {% else %}
+        <h1>’’</h1>
+        {% endif %}
+        <p>{{ post.content }}</p>
+        <!-- <a href="{% url 'posts' %}">Назад</a> -->
+        <span class="back-button" onclick="history.back()">Назад</span>
+    </div>
 </div>
 
 {% endblock %}
